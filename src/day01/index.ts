@@ -3,7 +3,6 @@
  * Ref.: https://adventofcode.com/2021/day/1
  */
 
-import * as fs from "fs";
 import * as path from "path";
 import { readFile } from "../common/utils";
 
@@ -37,16 +36,18 @@ function countMeasurementSlidingWindow(inputData: number[]): number {
   return total;
 }
 
-async function main(): Promise<void> {
-  const file = path.resolve(__dirname, "input.txt");
+export async function main(fileName: string = "input.txt"): Promise<number[]> {
+  const file = path.resolve(__dirname, fileName);
   const inputData = await readInput(file);
 
   const totalLargerMeasurements = countLargerMeasurements(inputData);
-  console.log(`Step 1: ${totalLargerMeasurements}`);
-
   const totalMeasurementSlidingWindow =
     countMeasurementSlidingWindow(inputData);
-  console.log(`Step 2: ${totalMeasurementSlidingWindow}`);
+  console.log(
+    `Step 1: ${totalLargerMeasurements} | Step 2: ${totalMeasurementSlidingWindow}`
+  );
+
+  return [totalLargerMeasurements, totalMeasurementSlidingWindow];
 }
 
 main();

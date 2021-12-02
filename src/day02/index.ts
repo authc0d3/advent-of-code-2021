@@ -47,15 +47,15 @@ function calculateDestinationWithAim(inputData: InputData[]): number {
   return coordinates.x * coordinates.y;
 }
 
-async function main() {
-  const file = path.resolve(__dirname, "input.txt");
+export async function main(fileName: string = "input.txt"): Promise<number[]> {
+  const file = path.resolve(__dirname, fileName);
   const inputData = await readInput(file);
 
   const destination = calculateDestination(inputData);
-  console.log(`Step 1: ${destination}`);
-
   const destinationWithAim = calculateDestinationWithAim(inputData);
-  console.log(`Step 2: ${destinationWithAim}`);
+  console.log(`Step 1: ${destination} | Step 2: ${destinationWithAim}`);
+
+  return [destination, destinationWithAim];
 }
 
 main();
