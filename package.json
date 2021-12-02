@@ -1,0 +1,22 @@
+{
+  "name": "adventofcode21",
+  "version": "1.0.0",
+  "description": "Advent of Code 2021 programming puzzle solutions",
+  "main": "index.js",
+  "scripts": {
+    "day01": "ts-node src/day01/index.ts",
+    "day02": "ts-node src/day01/index.ts"
+  },
+  "keywords": [
+    "advent of code 2021",
+    "puzzle",
+    "solutions"
+  ],
+  "author": "Antonio González (authc0d3)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}
