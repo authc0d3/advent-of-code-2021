@@ -3,16 +3,15 @@
  * Ref.: https://adventofcode.com/2021/day/2
  */
 
-import * as fs from "fs";
 import * as path from "path";
 import { Coordinates, CoordinatesWithAim, InputData } from "./types.d";
+import { readFile } from "../common/utils";
 
 // Read and parse input
 async function readInput(filePath: string): Promise<InputData[]> {
   try {
-    const raw = await fs.readFileSync(filePath, "utf8");
-    const data = raw.split("\r\n");
-    return data && data.length
+    const data = await readFile(filePath);
+    return Array.isArray(data)
       ? data.map((row) => {
           const [action, value] = row.split(" ");
           return { action: action.toLowerCase(), value: parseInt(value) };

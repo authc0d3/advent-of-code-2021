@@ -5,17 +5,12 @@
 
 import * as fs from "fs";
 import * as path from "path";
+import { readFile } from "../common/utils";
 
 // Read and parse input
 async function readInput(filePath: string): Promise<number[]> {
-  try {
-    const raw = await fs.readFileSync(filePath, "utf8");
-    const data = raw.split("\r\n");
-    return data && data.length ? data.map((num) => parseInt(num)) : [];
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
+  const data = await readFile(filePath);
+  return Array.isArray(data) ? data.map((num) => parseInt(num)) : [];
 }
 
 // Step 1
