@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "day01": "ts-node src/day01/index.ts",
-    "day02": "ts-node src/day01/index.ts"
+    "day02": "ts-node src/day02/index.ts"
   },
   "keywords": [
     "advent of code 2021",
