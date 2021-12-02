@@ -1,4 +1,4 @@
-# 🎅 The Advent of Code 2021 puzzle solutions with TypeScript
+# 🎅 The Advent of Code 2021 puzzle solutions
 
 This is a puzzle solutions collection of the [Advent of Code 2021](https://adventofcode.com/2021) solved with TypeScript.
 
