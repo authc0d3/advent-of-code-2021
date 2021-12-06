@@ -1,13 +1,10 @@
+import { Coordinate } from "../common/types.d";
+
 export type InputData = {
   action: string;
   value: number;
 };
 
-export type Coordinates = {
-  x: number;
-  y: number;
-};
-
-export type CoordinatesWithAim = Coordinates & {
+export type CoordinateWithAim = Coordinate & {
   aim: number;
 };

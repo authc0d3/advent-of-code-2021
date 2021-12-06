@@ -3,3 +3,8 @@ export type ReadFileOptions = {
   splitLines?: boolean;
   ignoreBlankLines?: boolean;
 };
+
+export type Coordinate = {
+  x: number;
+  y: number;
+};

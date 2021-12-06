@@ -4,8 +4,9 @@
  */
 
 import * as path from "path";
-import { Coordinates, CoordinatesWithAim, InputData } from "./types.d";
 import { readFile } from "../common/utils";
+import { Coordinate } from "../common/types.d";
+import { CoordinateWithAim, InputData } from "./types.d";
 
 // Read and parse input
 function readInput(filePath: string): InputData[] {
@@ -25,7 +26,7 @@ function readInput(filePath: string): InputData[] {
 
 // Step 1: Calculate multiply of final position
 function calculateDestination(inputData: InputData[]) {
-  const coordinates: Coordinates = { x: 0, y: 0 };
+  const coordinates: Coordinate = { x: 0, y: 0 };
   inputData.forEach(({ action, value }) => {
     if (action === "forward") coordinates.x += value;
     else if (action === "down") coordinates.y += value;
@@ -36,7 +37,7 @@ function calculateDestination(inputData: InputData[]) {
 
 // Step 2: Calculate multiply of final position with aim
 function calculateDestinationWithAim(inputData: InputData[]): number {
-  const coordinates: CoordinatesWithAim = { x: 0, y: 0, aim: 0 };
+  const coordinates: CoordinateWithAim = { x: 0, y: 0, aim: 0 };
   inputData.forEach(({ action, value }) => {
     if (action === "forward") {
       coordinates.x += value;
