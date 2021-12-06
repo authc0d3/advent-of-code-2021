@@ -1,13 +1,13 @@
 import * as fs from "fs";
 
-export async function readFile(
+export function readFile(
   filePath: string,
   encoding: BufferEncoding = "utf8",
   splitLines: boolean = true
-): Promise<string | string[]> {
+): string | string[] {
   try {
-    const data = await fs.readFileSync(filePath, encoding);
-    return splitLines ? data.split("\n") : data;
+    const data = fs.readFileSync(filePath, encoding);
+    return splitLines ? data.replace(/\r/gi, "").split("\n") : data;
   } catch (err) {
     console.error(err);
     return splitLines ? [] : "";

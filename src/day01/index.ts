@@ -7,8 +7,8 @@ import * as path from "path";
 import { readFile } from "../common/utils";
 
 // Read and parse input
-async function readInput(filePath: string): Promise<number[]> {
-  const data = await readFile(filePath);
+function readInput(filePath: string): number[] {
+  const data = readFile(filePath);
   return Array.isArray(data) ? data.map((num) => parseInt(num)) : [];
 }
 
@@ -36,9 +36,9 @@ function countMeasurementSlidingWindow(inputData: number[]): number {
   return total;
 }
 
-export async function main(fileName: string = "input.txt"): Promise<number[]> {
+export function main(fileName: string = "input.txt"): number[] {
   const file = path.resolve(__dirname, fileName);
-  const inputData = await readInput(file);
+  const inputData = readInput(file);
 
   const totalLargerMeasurements = countLargerMeasurements(inputData);
   const totalMeasurementSlidingWindow =

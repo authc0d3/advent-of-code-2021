@@ -8,9 +8,9 @@ import { Coordinates, CoordinatesWithAim, InputData } from "./types.d";
 import { readFile } from "../common/utils";
 
 // Read and parse input
-async function readInput(filePath: string): Promise<InputData[]> {
+function readInput(filePath: string): InputData[] {
   try {
-    const data = await readFile(filePath);
+    const data = readFile(filePath);
     return Array.isArray(data)
       ? data.map((row) => {
           const [action, value] = row.split(" ");
@@ -47,9 +47,9 @@ function calculateDestinationWithAim(inputData: InputData[]): number {
   return coordinates.x * coordinates.y;
 }
 
-export async function main(fileName: string = "input.txt"): Promise<number[]> {
+export function main(fileName: string = "input.txt"): number[] {
   const file = path.resolve(__dirname, fileName);
-  const inputData = await readInput(file);
+  const inputData = readInput(file);
 
   const destination = calculateDestination(inputData);
   const destinationWithAim = calculateDestinationWithAim(inputData);
