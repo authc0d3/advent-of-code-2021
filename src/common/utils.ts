@@ -18,7 +18,7 @@ export function readFile(
       ? data
           .replace(/\r/gi, "")
           .split("\n")
-          .filter((line) => ignoreBlankLines || line !== "")
+          .filter((line) => !ignoreBlankLines || line !== "")
       : data;
   } catch (err) {
     console.error(err);
