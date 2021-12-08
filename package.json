@@ -8,7 +8,9 @@
     "day01": "ts-node src/day01/index.ts",
     "day02": "ts-node src/day02/index.ts",
     "day03": "ts-node src/day03/index.ts",
-    "day04": "ts-node src/day04/index.ts"
+    "day04": "ts-node src/day04/index.ts",
+    "day05": "ts-node src/day05/index.ts",
+    "day06": "ts-node src/day06/index.ts"
   },
   "keywords": [
     "advent of code 2021",

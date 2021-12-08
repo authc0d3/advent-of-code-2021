@@ -1,3 +1,8 @@
+/**
+ * Advent of Code 2021 - Day 4
+ * Ref.: https://adventofcode.com/2021/day/4
+ */
+
 import * as path from "path";
 import { readFile } from "../common/utils";
 import { BingoGame, BingoTicket } from "./types";

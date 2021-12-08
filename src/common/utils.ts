@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { ReadFileOptions } from "./types";
+import { Coordinate, ReadFileOptions } from "./types";
 
 export function removeBlankLines(data: string[]): string[] {
   return data.filter((line) => line !== "");
@@ -24,4 +24,25 @@ export function readFile(
     console.error(err);
     return splitLines ? [] : "";
   }
+}
+
+export function parseCoordinate(
+  line: string,
+  separator: string = ","
+): Coordinate {
+  return line.split(separator).reduce(
+    (prev, next, index) => ({
+      ...prev,
+      [index === 0 ? "x" : "y"]: parseInt(next),
+    }),
+    {} as Coordinate
+  );
+}
+
+export function subtractCoordinates(from: Coordinate, to: Coordinate) {
+  return [from.x - to.x, from.y - to.y];
+}
+
+export function compareCoordinates(from: Coordinate, to: Coordinate) {
+  return from.x === to.x && from.y === to.y;
 }
