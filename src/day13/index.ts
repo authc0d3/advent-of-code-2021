@@ -6,7 +6,7 @@
 import * as path from "path";
 import { Coordinate } from "../common/types";
 import { readFile } from "../common/utils";
-import { Briefing } from "./type.d";
+import { Briefing } from "./types.d";
 
 function readInput(filePath: string): Briefing {
   const data = readFile(filePath, { ignoreBlankLines: false });
