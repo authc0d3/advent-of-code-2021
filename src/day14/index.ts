@@ -109,18 +109,18 @@ export function main(fileName: string = "input.txt"): number[] {
   const file = path.resolve(__dirname, fileName);
   const polymer = readInput(file);
 
-  const evolvedPairs = getPrevalentPairs(polymer, 10);
+  const evolvedPairsAfter10Steps = getPrevalentPairs(polymer, 10);
   const totalSubtractionAfter10Steps = getElementSubtractionResult(
-    evolvedPairs,
+    evolvedPairsAfter10Steps,
     polymer.template
   );
   console.log(
     `Step 1, most and least common element subtraction after 10 steps: ${totalSubtractionAfter10Steps}`
   );
 
-  const evolvedPairs2 = getPrevalentPairs(polymer, 40);
+  const evolvedPairsAfter40Steps = getPrevalentPairs(polymer, 40);
   const totalSubtractionAfter40Steps = getElementSubtractionResult(
-    evolvedPairs2,
+    evolvedPairsAfter40Steps,
     polymer.template
   );
   console.log(
