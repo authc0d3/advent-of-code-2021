@@ -26,6 +26,16 @@ export function readFile(
   }
 }
 
+export function readMatrix(filePath: string): number[][] {
+  const data = readFile(filePath);
+  if (!Array.isArray(data)) return [];
+
+  return data.reduce((map, cell, row) => {
+    map[row] = cell.split("").map(Number);
+    return map;
+  }, [] as number[][]);
+}
+
 export function parseCoordinate(
   line: string,
   separator: string = ","

@@ -5,17 +5,7 @@
 
 import * as path from "path";
 import { Coordinate } from "../common/types.d";
-import { readFile } from "../common/utils";
-
-function readInput(filePath: string): number[][] {
-  const data = readFile(filePath);
-  if (!Array.isArray(data)) return [];
-
-  return data.reduce((map, cell, row) => {
-    map[row] = cell.split("").map(Number);
-    return map;
-  }, [] as number[][]);
-}
+import { readMatrix } from "../common/utils";
 
 function getRiskLevel(map: number[][]): number {
   return map
@@ -168,7 +158,7 @@ function getValueOfMostImportantAreasToAvoid(map: number[][]): number {
 
 export function main(fileName: string = "input.txt"): number[] {
   const file = path.resolve(__dirname, fileName);
-  const map = readInput(file);
+  const map = readMatrix(file);
 
   const riskLevel = getRiskLevel(map);
   console.log(`Step 1, risk level: ${riskLevel}`);

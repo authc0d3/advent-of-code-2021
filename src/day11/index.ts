@@ -5,18 +5,7 @@
 
 import * as path from "path";
 import { Coordinate } from "../common/types.d";
-import { readFile } from "../common/utils";
-
-// TODO: Move this method to utils and use reuse it in day09 solution
-function readInput(filePath: string): number[][] {
-  const data = readFile(filePath);
-  if (!Array.isArray(data)) return [];
-
-  return data.reduce((map, cell, row) => {
-    map[row] = cell.split("").map(Number);
-    return map;
-  }, [] as number[][]);
-}
+import { readMatrix } from "../common/utils";
 
 function checkFlashes(
   octopus: Coordinate,
@@ -110,7 +99,7 @@ function getSynchroStep(matrix: number[][], step: number = 0): number {
 
 export function main(fileName: string = "input.txt"): number[] {
   const file = path.resolve(__dirname, fileName);
-  const matrix = readInput(file);
+  const matrix = readMatrix(file);
 
   const [totalFlashesAfter100Steps, newMatrix] = countFlashesAfterSteps(
     matrix,
